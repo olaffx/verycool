@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>verycool</title>
+    <style>
+        @import url('zalgo.txt');
+
+        body {
+            background: #0a0a0a;
+            color: #00ff88;
+            font-family: monospace;
+            text-align: center;
+            padding: 40px;
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            font-size: 9px;
+            line-height: 1.2;
+            text-align: left;
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: auto;
+            max-height: 70vh;
+            color: #00cc77;
+            white-space: pre-wrap;
+        }
+
+        body {
+            animation: softglitch 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes softglitch {
+            0%   { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(20deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>verycool</h1>
+    <p>you found the secret file</p>
+
+    <script>
+        fetch('zalgo.txt')
+            .then(r => r.text())
+            .then(text => {
+                const pre = document.createElement('pre');
+                pre.textContent = text.substring(0, 20000000000);
+                document.body.appendChild(pre);
+            })
+            .catch(err => {
+                document.body.innerHTML += "<p style='color:#ff6666;'>couldn't load the full chaos...</p>";
+            });
+    </script>
+</body>
+</html>
